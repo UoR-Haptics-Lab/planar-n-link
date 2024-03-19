@@ -52,7 +52,7 @@ if __name__ == '__main__':
     inertias = []
     for inertia_symbol, frame in zip(inertia_symbols, frames):
         inertias.append(inertia(frame, inertia_symbol[0] , inertia_symbol[1], inertia_symbol[2], inertia_symbol[3], inertia_symbol[4], inertia_symbol[5]))
-    
+
     # Define bodies
     bodies = []
     for i, (frame, com_point, mass, body_inertia) in enumerate(zip(frames[1:], com_points, masses, inertias)):
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     # Weights
     for com_point, mass in zip(com_points, masses):
         forces.append((com_point, -mass * g * frames[0].y))
-    
+
     # Torques
     for frame, torque in zip(frames[1:], torques):
         forces.append((frame, torque * frame.z))
